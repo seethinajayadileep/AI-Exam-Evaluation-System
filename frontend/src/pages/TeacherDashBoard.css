@@ -1,0 +1,572 @@
+.Teacher-ai-div{
+
+      /* Base colors */
+    --background: hsl(210, 17%, 98%);
+    --foreground: hsl(216, 19%, 16%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(216, 19%, 16%);
+    
+    /* Primary colors */
+    --primary: hsl(214, 84%, 56%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --primary-hover: hsl(214, 84%, 50%);
+    
+    /* Secondary colors */
+    --secondary: hsl(188, 94%, 88%);
+    --secondary-foreground: hsl(214, 84%, 56%);
+    
+    /* Accent colors */
+    --accent: hsl(25, 95%, 65%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --accent-hover: hsl(25, 95%, 58%);
+    
+    /* Success/Warning/Danger */
+    --success: hsl(142, 76%, 45%);
+    --success-foreground: hsl(0, 0%, 100%);
+    --warning: hsl(42, 96%, 65%);
+    --warning-foreground: hsl(216, 19%, 16%);
+    --destructive: hsl(0, 84%, 60%);
+    --destructive-foreground: hsl(0, 0%, 100%);
+    
+    /* Muted colors */
+    --muted: hsl(210, 40%, 96%);
+    --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+    
+    /* Border and shadows */
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --shadow-soft: 0 2px 8px hsl(214, 84%, 56%, 0.08);
+    --shadow-medium: 0 4px 16px hsl(214, 84%, 56%, 0.12);
+    --shadow-strong: 0 8px 32px hsl(214, 84%, 56%, 0.16);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214, 84%, 56%), hsl(188, 94%, 55%));
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
+    
+    --radius: 0.75rem;
+    --sidebar-width: 280px;
+    --sidebar-collapsed-width: 64px;
+    --header-height: 64px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--background);
+    color: var(--foreground);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+.teacher-ai-header {
+    height: var(--header-height);
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-shadow: var(--shadow-soft);
+}
+
+.teacher-ai-header-content {
+    height: 100%;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-ai-header-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.teacher-ai-sidebar-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: none;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.teacher-ai-sidebar-toggle:hover {
+    background: var(--muted);
+}
+
+.teacher-ai-sidebar-toggle svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--foreground);
+}
+
+.teacher-ai-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--gradient-primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-ai-logo-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.teacher-ai-header-title h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+.teacher-ai-header-subtitle {
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.teacher-ai-header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.teacher-ai-user-info {
+    text-align: right;
+}
+
+.teacher-ai-user-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.teacher-ai-user-role {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+    text-transform: capitalize;
+}
+
+.teacher-ai-logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    color: var(--destructive);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.875rem;
+}
+
+.teacher-ai-logout-btn:hover {
+    background: hsl(0, 84%, 60%, 0.1);
+}
+
+.teacher-ai-logout-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+.teacher-ai-main-container {
+    display: flex;
+    margin-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+}
+
+/* Sidebar */
+.teacher-ai-sidebar {
+    width: var(--sidebar-width);
+    background: var(--card);
+    border-right: 1px solid var(--border);
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    transition: width 0.3s ease, transform 0.3s ease;
+    z-index: 40;
+}
+
+.teacher-ai-sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.teacher-ai-sidebar-nav {
+    padding: 1rem 0;
+}
+
+.teacher-ai-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    margin: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--muted-foreground);
+}
+
+.teacher-ai-nav-item:hover {
+    background: var(--muted);
+    color: var(--foreground);
+}
+
+.teacher-ai-nav-item.active {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.teacher-ai-nav-item svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex-shrink: 0;
+}
+
+.teacher-ai-nav-item span {
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+.teacher-ai-sidebar.collapsed .teacher-ai-nav-item span {
+    opacity: 0;
+    pointer-events: none;
+}
+.teacher-ai-main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    padding: 2rem;
+    transition: margin-left 0.3s ease;
+    background: var(--background);
+}
+
+.teacher-ai-main-content.sidebar-collapsed {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.teacher-ai-tab-content {
+    display: none;
+}
+
+.teacher-ai-tab-content {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.teacher-ai-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.teacher-ai-content-header h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--foreground);
+}
+
+/* Buttons */
+.teacher-ai-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: var(--radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+
+.teacher-ai-btn svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.teacher-ai-btn-primary {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.teacher-ai-btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.teacher-ai-btn-secondary {
+    background: var(--muted);
+    color: var(--foreground);
+}
+
+.teacher-ai-btn-secondary:hover {
+    background: var(--border);
+}
+
+/* Stats Grid */
+.teacher-ai-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.teacher-ai-stat-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s;
+}
+
+.teacher-ai-stat-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.teacher-ai-stat-icon {
+    width: 3rem;
+    height: 3rem;
+    background: var(--gradient-primary);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-ai-stat-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.teacher-ai-stat-info h3 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 0.25rem;
+}
+
+.teacher-ai-stat-info p {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+/* Questions Section */
+.teacher-ai-questions-section h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.teacher-ai-questions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.teacher-ai-question-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s;
+}
+
+.teacher-ai-question-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.teacher-ai-question-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.teacher-ai-question-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.teacher-ai-question-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.teacher-ai-question-meta span {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+.teacher-ai-question-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.teacher-ai-btn-icon {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.teacher-ai-question-text {
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.teacher-ai-question-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.teacher-ai-question-stats span {
+    font-size: 0.75rem;
+    color: var(--muted-foreground);
+}
+
+/* Upload Form */
+.teacher-ai-upload-form-container {
+    max-width: 600px;
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-soft);
+}
+
+.teacher-ai-form-group {
+    margin-bottom: 1.5rem;
+}
+
+.teacher-ai-form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.teacher-ai-form-group input,
+.teacher-ai-form-group textarea,
+.teacher-ai-form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    background: var(--background);
+    color: var(--foreground);
+    transition: border-color 0.2s;
+}
+
+.teacher-ai-form-group input:focus,
+.teacher-ai-form-group textarea:focus,
+.teacher-ai-form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.teacher-ai-form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.teacher-ai-form-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+/* Filter Controls */
+.teacher-ai-filter-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.teacher-ai-filter-controls select {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: var(--card);
+    color: var(--foreground);
+}
+
+/* Submissions Table */
+.teacher-ai-submissions-table-container {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+}
+
+.teacher-ai-submissions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.teacher-ai-submissions-table th,
+.teacher-ai-submissions-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.teacher-ai-submissions-table th {
+    background: var(--muted);
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+.teacher-ai-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.teacher-ai-status-pending {
+    background: hsl(42, 96%, 65%, 0.2);
+    color: var(--warning-foreground);
+}
+
+.teacher-ai-status-graded {
+    background: hsl(142, 76%, 45%, 0.2);
+    color: var(--success);
+}
+
+.teacher-ai-status-reviewed {
+    background: hsl(214, 84%, 56%, 0.2);
+    color: var(--primary);
+}

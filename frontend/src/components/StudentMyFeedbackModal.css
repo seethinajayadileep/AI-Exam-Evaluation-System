@@ -1,0 +1,130 @@
+/* StudentMyFeedbackModal.css */
+.student-my-feedback-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.student-my-feedback-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.student-my-feedback-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.student-my-feedback-modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.student-my-feedback-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.student-my-feedback-modal-close:hover {
+    color: #333;
+}
+
+.student-my-feedback-modal-body {
+    flex-grow: 1;
+}
+
+.student-my-feedback-meta {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.student-my-feedback-meta p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.student-my-feedback-meta strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.student-my-feedback-student-answer,
+.student-my-feedback-evaluation {
+    margin-bottom: 20px;
+}
+
+.student-my-feedback-student-answer h4,
+.student-my-feedback-evaluation h4 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.student-my-feedback-student-answer p,
+.student-my-feedback-evaluation p {
+    line-height: 1.6;
+    color: #444;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 6px;
+    white-space: pre-wrap; /* Preserves whitespace and line breaks */
+}
+
+.student-my-feedback-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.student-my-btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.student-my-btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.student-my-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004a99;
+}

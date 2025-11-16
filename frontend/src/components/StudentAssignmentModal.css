@@ -1,0 +1,163 @@
+
+.student-my-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top of other content */
+    padding: 20px; /* Padding for mobile devices */
+}
+
+/* Modal Content: The main popup box */
+.student-my-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 650px; /* Adjust as needed */
+    max-height: 90vh; /* Prevents modal from overflowing on small screens */
+    overflow-y: auto; /* Adds scrolling if content is too long */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modal Header: Title and Close button */
+.student-my-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.student-my-modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.student-my-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.student-my-modal-close:hover {
+    color: #333;
+}
+
+/* Modal Body: Assignment details and input area */
+.student-my-modal-body {
+    flex-grow: 1;
+}
+
+.student-my-assignment-details {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.student-my-assignment-details p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+}
+
+.student-my-assignment-details strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.student-my-assignment-question h4 {
+    font-size: 1.1rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.student-my-assignment-question p {
+    line-height: 1.6;
+    color: #444;
+}
+
+.student-my-assignment-answer h4 {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.student-my-answer-textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: inherit; /* Use same font as the rest of the app */
+    font-size: 1rem;
+    resize: vertical; /* Allow only vertical resizing */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
+    min-height: 150px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.student-my-answer-textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Modal Footer: Action buttons */
+.student-my-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Space between buttons */
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* General button styles for the modal */
+.student-my-btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.student-my-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: 1px solid #6c757d;
+}
+
+.student-my-btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.student-my-btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.student-my-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004a99;
+}

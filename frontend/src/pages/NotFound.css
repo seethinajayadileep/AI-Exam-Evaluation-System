@@ -1,0 +1,129 @@
+.not-body {
+    position: relative; /* ✅ Added this line */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden; /* Optional: keeps floating shapes contained */
+}
+
+.not-container {
+    text-align: center;
+    max-width: 600px;
+    padding: 2rem;
+}
+
+.not-error-code {
+    font-size: 8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite;
+}
+
+.not-error-message {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.not-error-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.not-home-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.not-home-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+.not-floating-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.not-shape {
+    position: absolute;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.not-shape:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.not-shape:nth-child(2) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.not-shape:nth-child(3) {
+    left: 60%;
+    animation-delay: 4s;
+}
+
+.not-shape:nth-child(4) {
+    left: 80%;
+    animation-delay: 1s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .not-error-code {
+        font-size: 6rem;
+    }
+    
+    .not-error-message {
+        font-size: 1.5rem;
+    }
+    
+    .not-error-description {
+        font-size: 1rem;
+    }
+    
+    .not-container {
+        padding: 1rem;
+    }
+}
