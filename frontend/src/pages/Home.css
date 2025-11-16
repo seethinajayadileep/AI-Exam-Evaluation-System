@@ -1,0 +1,386 @@
+/* CSS Variables - Education Design System */
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.home1 {
+     /* Base colors */
+    --background: hsl(210, 17%, 98%);
+    --foreground: hsl(216, 19%, 16%);
+    --card: hsl(0, 0%, 100%);
+    --card-foreground: hsl(216, 19%, 16%);
+    
+    /* Primary colors */
+    --primary: hsl(214, 84%, 56%);
+    --primary-foreground: hsl(0, 0%, 100%);
+    --primary-hover: hsl(214, 84%, 50%);
+    
+    /* Secondary colors */
+    --secondary: hsl(188, 94%, 88%);
+    --secondary-foreground: hsl(214, 84%, 56%);
+    
+    /* Accent colors */
+    --accent: hsl(25, 95%, 65%);
+    --accent-foreground: hsl(0, 0%, 100%);
+    --accent-hover: hsl(25, 95%, 58%);
+    
+    /* Muted colors */
+    --muted: hsl(210, 40%, 96%);
+    --muted-foreground: hsl(215.4, 16.3%, 46.9%);
+    
+    /* Border and shadows */
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --shadow-soft: 0 2px 8px hsl(214, 84%, 56%, 0.08);
+    --shadow-medium: 0 4px 16px hsl(214, 84%, 56%, 0.12);
+    --shadow-strong: 0 8px 32px hsl(214, 84%, 56%, 0.16);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(214, 84%, 56%), hsl(188, 94%, 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(214, 84%, 56%) 0%, hsl(188, 94%, 55%) 50%, hsl(25, 95%, 65%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 100%) 0%, hsl(210, 17%, 98%) 100%);
+    
+    --radius: 0.75rem;
+
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--gradient-hero);
+    color: var(--foreground);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Header Styles */
+.header {
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    height: 4rem;
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--gradient-primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+/* Hero Section */
+.hero {
+    padding: 5rem 1rem;
+}
+
+.hero-container {
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hero-highlight {
+    background: linear-gradient(to right, var(--accent), hsl(42, 96%, 65%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: hsla(0, 0%, 100%, 0.9);
+    margin-bottom: 3rem;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+/* Role Cards */
+.role-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 32rem;
+    margin: 0 auto;
+    animation: scaleIn 0.8s ease-out 0.4s both;
+}
+
+.role-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-medium);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.role-card:hover {
+    box-shadow: var(--shadow-strong);
+    transform: translateY(-2px);
+}
+
+.role-card.selected {
+    ring: 2px solid var(--primary);
+}
+
+.role-card-header {
+    padding: 1.5rem 1.5rem 1rem;
+    text-align: center;
+}
+
+.role-icon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.teacher-icon {
+    background: hsla(214, 84%, 56%, 0.1);
+    color: var(--primary);
+}
+
+.student-icon {
+    background: hsla(25, 95%, 65%, 0.1);
+    color: var(--accent);
+}
+
+.role-icon svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.role-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+}
+
+.role-card-content {
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+}
+
+.role-description {
+    color: var(--muted-foreground);
+    margin-bottom: 1.5rem;
+}
+
+.role-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    font-size: 1rem;
+}
+
+.teacher-button {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.teacher-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.student-button {
+    background: var(--accent);
+    color: var(--accent-foreground);
+}
+
+.student-button:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+.button-arrow {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Features Section */
+.features {
+    padding: 5rem 1rem;
+    background: hsla(0, 0%, 100%, 0.8);
+    backdrop-filter: blur(8px);
+}
+
+.features-container {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.features-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.features-title {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: var(--foreground);
+    margin-bottom: 1rem;
+}
+
+.features-description {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    max-width: 32rem;
+    margin: 0 auto;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    box-shadow: var(--shadow-medium);
+    transform: translateY(-2px);
+}
+
+.feature-header {
+    padding: 1.5rem 1.5rem 1rem;
+}
+
+.feature-icon {
+    width: 3rem;
+    height: 3rem;
+    background: var(--gradient-primary);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.feature-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: white;
+}
+
+.feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--card-foreground);
+}
+
+.feature-content {
+    padding: 0 1.5rem 1.5rem;
+}
+
+.feature-description {
+    color: var(--muted-foreground);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+    }
+    
+    .role-cards {
+        grid-template-columns: 1fr;
+        max-width: 24rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .logo-text {
+        font-size: 1.25rem;
+    }
+}

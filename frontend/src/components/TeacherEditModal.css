@@ -1,0 +1,130 @@
+
+
+.today1-teacher-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.today1-teacher-modal-content {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.today1-teacher-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.today1-teacher-modal-header h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: #333;
+}
+
+.today1-teacher-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #888;
+    line-height: 1;
+    padding: 0;
+    transition: color 0.2s ease;
+}
+
+.today1-teacher-modal-close:hover {
+    color: #333;
+}
+
+.today1-teacher-modal-body {
+    flex-grow: 1;
+}
+
+.today1-teacher-edit-form .today1-teacher-form-group {
+    margin-bottom: 15px;
+}
+
+.today1-teacher-edit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.today1-teacher-edit-form input,
+.today1-teacher-edit-form textarea,
+.today1-teacher-edit-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.today1-teacher-edit-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.today1-teacher-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.today1-teacher-btn {
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.today1-teacher-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: 1px solid #6c757d;
+}
+
+.today1-teacher-btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.today1-teacher-btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.today1-teacher-btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004a99;
+}
