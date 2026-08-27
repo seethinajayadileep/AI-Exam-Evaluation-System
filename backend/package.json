@@ -1,23 +1,24 @@
 {
-  "name": "backend-mern",
-  "version": "1.0.0",
-  "description": "",
+  "name": "ai-exam-evaluation-api",
+  "version": "2.0.0",
+  "description": "API for the AI-based subjective exam evaluation system",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["education", "nlp", "exam", "gemini"],
+  "author": "Seethina Jaya Dileep",
+  "license": "MIT",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
-    "env": "^0.0.2",
     "express": "^5.1.0",
-    "mongodb": "^6.17.0",
-    "mongoose": "^8.16.4",
-    "multer": "^2.0.2"
+    "mongodb": "^6.17.0"
   }
 }

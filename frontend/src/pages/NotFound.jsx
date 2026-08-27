@@ -1,28 +1,16 @@
-import './NotFound.css';
-function NotFound(){
+import { Link } from "react-router-dom";
 
-    return (
-       <>
-       <div className='not-body'>
-    <div className="not-floating-shapes">
-        <div className="not-shape">📚</div>
-        <div className="not-shape">🎓</div>
-        <div className="not-shape">✏️</div>
-        <div className="not-shape">📖</div>
+export default function NotFound() {
+  return (
+    <div className="not-found">
+      <div className="kicker">404</div>
+      <h1>This page left the exam hall.</h1>
+      <p className="muted" style={{ margin: "1rem 0 1.5rem" }}>
+        The route does not exist. Head back to the landing page or sign in to a dashboard.
+      </p>
+      <Link className="btn btn-primary" to="/">
+        Return home
+      </Link>
     </div>
-    
-    <div className="not-container">
-        <div className="not-error-code">404</div>
-        <h1 className="not-error-message">Oops! Page Not Found</h1>
-        <p className="not-error-description">
-            The page you're looking for seems to have wandered off. 
-            Don't worry, even the best students sometimes get lost!
-        </p>
-        <a href="/" className="not-home-button">Return to Home</a>
-    </div>
-    </div>
-    </>
-
-    )
+  );
 }
-export default NotFound;
