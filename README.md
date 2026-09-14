@@ -2,6 +2,16 @@
 
 Web app for teachers to publish subjective questions with model answers and rubrics, and for students to submit long-form answers. Teachers can run AI evaluation, review confidence and criterion-level scores, then approve or override the grade. Students only see scores after a teacher publishes them.
 
+## Live deployment
+
+| Surface | URL |
+| --- | --- |
+| Frontend | https://ai-exam-evaluation-system.vercel.app/ |
+| Backend API | https://eval.seethinajayadileep.dev |
+| Health check | https://eval.seethinajayadileep.dev/api/health |
+
+The Vercel app calls the backend at `https://eval.seethinajayadileep.dev`. Sign in with the demo accounts below.
+
 ## Demo accounts (fictional)
 
 These are the only seeded users. Do not load real student data until you replace the demo login with your own identity provider.

@@ -154,9 +154,12 @@ async function startServer() {
     const drafts = () => database.collection("drafts");
     await drafts().createIndex({ studentId: 1, assignmentId: 1 }, { unique: true });
 
-    app.get("/api/health", (_req, res) => {
+    const health = (_req, res) => {
         res.json({ ok: true });
-    });
+    };
+    app.get("/", health);
+    app.get("/health", health);
+    app.get("/api/health", health);
 
     app.post("/api/auth/login", async (req, res) => {
         try {
