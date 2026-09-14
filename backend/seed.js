@@ -379,6 +379,9 @@ async function ensureSeed(database) {
 async function runCli() {
     require("dotenv").config();
     const uri = process.env.MONGO_URI;
+    if (!uri) {
+        throw new Error("MONGO_URI is required. Set it in backend/.env or the hosting environment.");
+    }
     const client = await MongoClient.connect(uri);
     try {
         const result = await seedDemoData(client.db("examdb"));

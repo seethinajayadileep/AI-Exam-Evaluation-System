@@ -19,6 +19,9 @@ app.use(express.json({ limit: "1mb" }));
 const PORT = process.env.PORT || 5038;
 const DBNAME = "examdb";
 const connection_string = process.env.MONGO_URI;
+if (!connection_string) {
+    throw new Error("MONGO_URI is required. Set it in backend/.env or the hosting environment.");
+}
 
 let database;
 
