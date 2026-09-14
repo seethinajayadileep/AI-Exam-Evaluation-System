@@ -1,27 +1,23 @@
-/* TodayTeacherGradingModal.css */
-
 .today-teacher-modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    background: hsl(222 47% 11% / 0.45);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
+    padding: var(--space-2);
 }
 
 .today-teacher-modal-content {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 650px;
-    max-height: 90vh;
+    background: var(--card);
+    color: var(--card-foreground);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
+    width: min(1080px, 100%);
+    max-width: min(1080px, 100%);
+    max-height: min(88vh, 880px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -31,16 +27,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--space-2);
     padding-bottom: 15px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border);
 }
 
 .today-teacher-modal-header h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
-    color: #333;
+    color: var(--foreground);
 }
 
 .today-teacher-modal-close {
@@ -48,14 +44,13 @@
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #888;
+    color: var(--muted-foreground);
     line-height: 1;
     padding: 0;
-    transition: color 0.2s ease;
 }
 
 .today-teacher-modal-close:hover {
-    color: #333;
+    color: var(--foreground);
 }
 
 .today-teacher-modal-body {
@@ -70,17 +65,17 @@
     font-size: 1.1rem;
     margin-top: 0;
     margin-bottom: 10px;
-    color: #333;
+    color: var(--foreground);
 }
 
 .today-teacher-submission-text {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 15px;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
     white-space: pre-wrap;
     line-height: 1.6;
-    color: #444;
+    color: var(--card-foreground);
 }
 
 .today-teacher-grading-form .today-teacher-form-group {
@@ -97,11 +92,12 @@
 .today-teacher-grading-form textarea {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 1rem;
-    box-sizing: border-box;
+    background: var(--surface);
+    color: var(--foreground);
 }
 
 .today-teacher-grading-form input[type="number"] {
@@ -119,7 +115,7 @@
     gap: 10px;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border);
 }
 
 .today-teacher-btn {
@@ -128,27 +124,38 @@
     font-size: 1rem;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .today-teacher-btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    border: 1px solid #6c757d;
-}
-
-.today-teacher-btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+    background: var(--muted);
+    color: var(--foreground);
+    border: 1px solid var(--border);
 }
 
 .today-teacher-btn-primary {
-    background-color: #007bff;
-    color: white;
-    border: 1px solid #007bff;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid var(--primary);
 }
 
-.today-teacher-btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004a99;
+.teacher-ai-rubric-list,
+.teacher-audit-trail ol {
+    margin: 0 0 1rem;
+    padding-left: 1.25rem;
+}
+
+.teacher-ai-eval-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.teacher-ai-eval-results,
+.teacher-audit-trail {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    margin-bottom: 1rem;
 }

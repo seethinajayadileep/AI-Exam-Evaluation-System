@@ -1,71 +1,65 @@
-import React, { useState } from 'react';
-import StudentHeader from "../components/StudentHeader";
-import './StudentDashBoard.css';
-import StudentOverview from "../components/StudentOverview";
-import StudentRecentAssignments from "../components/StudentRecentAssignments";
-import StudentDeadline from "../components/StudentDeadlines";
-import StudentSideBar from "../components/StudentSideBar"; 
+import React, { useState } from "react";
+import "./StudentDashBoard.css";
+import StudentHome from "../components/StudentHome";
 import StudentAvailableAssignments from "../components/StudentAvailableAssignments";
 import StudentSubmission from "../components/StudentSubmission";
 import StudentProgress from "../components/StudentProgress";
+import AppShell from "../ui/AppShell";
+import { Icons } from "../ui/icons";
+
+const NAV_ITEMS = [
+  { id: "Dashboard", label: "Dashboard", icon: Icons.Dashboard() },
+  { id: "Assignments", label: "Assignments", icon: Icons.Calendar() },
+  { id: "Submission", label: "My Submissions", icon: Icons.Document() },
+  { id: "Progress", label: "Progress", icon: Icons.Chart() }
+];
 
 function StudentDashBoard() {
-    const [toggleState, setToggleState] = useState(0);
-    const SideBar = () => {
-        setToggleState(prev => (prev === 0 ? 1 : 0));
-    };
-    const [display, setDisplay] = useState("Dashboard");
-    
-    function handleSideBar(message) {
-        setDisplay(message);
-    }
-    
-    
-    const closeSidebar = () => {
-        setToggleState(0);
-    };
+  const [display, setDisplay] = useState("Dashboard");
+  const [searchItems, setSearchItems] = useState([]);
+  const [notifications, setNotifications] = useState([]);
+  const [focus, setFocus] = useState(null);
 
-    let displayContent;
-    if (display === "Dashboard") {
-        displayContent = (
-            <div className="">
-                <StudentOverview onViewAssignmentsClick={() => handleSideBar("Assignments")} />
-                <div className="">
-                    <StudentRecentAssignments />
-                    <h1 className="student-space"></h1>
-                    <StudentDeadline />
-                </div>
-            </div>
-        );
-    } else if (display === "Assignments") {
-        displayContent = <StudentAvailableAssignments />;
-    } else if (display === "Submission") {
-        displayContent = <StudentSubmission />;
-    } else {
-        displayContent = <StudentProgress />;
-    }
+  const requestNavigate = (tab, meta) => {
+    setDisplay(tab);
+    setFocus(meta ? { ...meta, at: Date.now() } : null);
+  };
 
-    return (
-        <>
-            <div className="student-body">
-                <StudentHeader onButtonClick={SideBar} />
-                <div className="student-main-container">
-                    {toggleState === 1 && (
-                       
-                        <StudentSideBar 
-                            ButtonClicked={handleSideBar} 
-                            onClose={closeSidebar} 
-                        />
-                    )}
-                    <div className="student-main-content">
-                        <div className="student-dashboard-sections">
-                            {displayContent}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
+  let displayContent;
+  if (display === "Dashboard") {
+    displayContent = (
+      <StudentHome
+        onViewAssignments={(assignmentId) => {
+          requestNavigate("Assignments", assignmentId ? { assignmentId } : null);
+        }}
+        onViewSubmissions={() => requestNavigate("Submission")}
+        onIndexChange={({ searchItems: items, notifications: notes }) => {
+          setSearchItems(items);
+          setNotifications(notes);
+        }}
+      />
     );
+  } else if (display === "Assignments") {
+    displayContent = <StudentAvailableAssignments focus={focus} />;
+  } else if (display === "Submission") {
+    displayContent = <StudentSubmission />;
+  } else {
+    displayContent = <StudentProgress />;
+  }
+
+  return (
+    <AppShell
+      role="student"
+      title="Student Dashboard"
+      navItems={NAV_ITEMS}
+      activeTab={display}
+      onNavigate={requestNavigate}
+      searchItems={searchItems}
+      notifications={notifications}
+    >
+      {displayContent}
+    </AppShell>
+  );
 }
 
 export default StudentDashBoard;

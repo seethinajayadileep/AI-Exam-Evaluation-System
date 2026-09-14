@@ -1,0 +1,87 @@
+:root {
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --space-0: 0;
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --radius-sm: 12px;
+  --radius: 14px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+  --duration: 180ms;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --shadow-soft: 0 1px 2px hsl(222 47% 11% / 0.06), 0 4px 12px hsl(222 47% 11% / 0.04);
+  --shadow-medium: 0 4px 16px hsl(222 47% 11% / 0.08);
+  --header-height: 64px;
+  --sidebar-width: 272px;
+  --sidebar-collapsed-width: 72px;
+  --touch: 44px;
+
+  --background: hsl(220 20% 97%);
+  --foreground: hsl(222 47% 11%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(222 47% 11%);
+  --surface: hsl(220 20% 99%);
+  --muted: hsl(220 16% 94%);
+  --muted-foreground: hsl(215 16% 38%);
+  --border: hsl(220 13% 88%);
+  --ring: hsl(226 70% 48%);
+  --primary: hsl(226 70% 48%);
+  --primary-foreground: hsl(0 0% 100%);
+  --primary-hover: hsl(226 70% 42%);
+  --secondary: hsl(220 16% 94%);
+  --secondary-foreground: hsl(226 70% 36%);
+  --accent: hsl(226 70% 48%);
+  --accent-foreground: hsl(0 0% 100%);
+  --success: hsl(152 61% 36%);
+  --success-foreground: hsl(0 0% 100%);
+  --success-soft: hsl(152 50% 93%);
+  --warning: hsl(38 92% 42%);
+  --warning-foreground: hsl(32 90% 16%);
+  --warning-soft: hsl(42 96% 90%);
+  --destructive: hsl(0 72% 46%);
+  --destructive-foreground: hsl(0 0% 100%);
+  --destructive-soft: hsl(0 86% 95%);
+  --info-soft: hsl(226 80% 95%);
+}
+
+[data-theme="dark"] {
+  --background: hsl(222 28% 8%);
+  --foreground: hsl(210 20% 96%);
+  --card: hsl(222 24% 12%);
+  --card-foreground: hsl(210 20% 96%);
+  --surface: hsl(222 24% 14%);
+  --muted: hsl(222 18% 18%);
+  --muted-foreground: hsl(215 14% 72%);
+  --border: hsl(222 16% 22%);
+  --ring: hsl(226 80% 72%);
+  --primary: hsl(226 75% 68%);
+  --primary-foreground: hsl(226 50% 12%);
+  --primary-hover: hsl(226 75% 74%);
+  --secondary: hsl(222 18% 18%);
+  --secondary-foreground: hsl(210 20% 96%);
+  --accent: hsl(226 75% 68%);
+  --accent-foreground: hsl(226 50% 12%);
+  --success: hsl(152 55% 48%);
+  --success-foreground: hsl(152 50% 10%);
+  --success-soft: hsl(152 30% 16%);
+  --warning: hsl(38 92% 58%);
+  --warning-foreground: hsl(42 96% 88%);
+  --warning-soft: hsl(38 40% 16%);
+  --destructive: hsl(0 72% 62%);
+  --destructive-foreground: hsl(0 50% 10%);
+  --destructive-soft: hsl(0 40% 16%);
+  --info-soft: hsl(226 30% 18%);
+  --shadow-soft: 0 1px 2px hsl(0 0% 0% / 0.35), 0 8px 20px hsl(0 0% 0% / 0.25);
+  --shadow-medium: 0 8px 24px hsl(0 0% 0% / 0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration: 1ms;
+  }
+}

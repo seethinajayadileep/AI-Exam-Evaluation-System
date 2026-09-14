@@ -1,27 +1,23 @@
-
-
 .today1-teacher-modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    inset: 0;
+    background: hsl(222 47% 11% / 0.45);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    padding: 20px;
+    padding: var(--space-2);
 }
 
 .today1-teacher-modal-content {
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background: var(--card);
+    color: var(--card-foreground);
+    padding: var(--space-3);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-medium);
     width: 100%;
     max-width: 650px;
-    max-height: 90vh;
+    max-height: min(90vh, 880px);
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -33,14 +29,14 @@
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border);
 }
 
 .today1-teacher-modal-header h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin: 0;
-    color: #333;
+    color: var(--foreground);
 }
 
 .today1-teacher-modal-close {
@@ -48,14 +44,13 @@
     border: none;
     font-size: 2rem;
     cursor: pointer;
-    color: #888;
+    color: var(--muted-foreground);
     line-height: 1;
     padding: 0;
-    transition: color 0.2s ease;
 }
 
 .today1-teacher-modal-close:hover {
-    color: #333;
+    color: var(--foreground);
 }
 
 .today1-teacher-modal-body {
@@ -77,11 +72,12 @@
 .today1-teacher-edit-form select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 1rem;
-    box-sizing: border-box;
+    background: var(--surface);
+    color: var(--foreground);
 }
 
 .today1-teacher-edit-form textarea {
@@ -95,7 +91,7 @@
     gap: 10px;
     margin-top: 20px;
     padding-top: 20px;
-    border-top: 1px solid #e0e0e0;
+    border-top: 1px solid var(--border);
 }
 
 .today1-teacher-btn {
@@ -104,27 +100,16 @@
     font-size: 1rem;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .today1-teacher-btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    border: 1px solid #6c757d;
-}
-
-.today1-teacher-btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
+    background: var(--muted);
+    color: var(--foreground);
+    border: 1px solid var(--border);
 }
 
 .today1-teacher-btn-primary {
-    background-color: #007bff;
-    color: white;
-    border: 1px solid #007bff;
-}
-
-.today1-teacher-btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004a99;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: 1px solid var(--primary);
 }

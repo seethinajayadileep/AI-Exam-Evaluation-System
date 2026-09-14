@@ -1,0 +1,69 @@
+.calibration-panel {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.calibration-panel h3 {
+  margin: 0;
+}
+
+.calibration-sample {
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.calibration-sample-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(8.5rem, 10rem);
+  gap: var(--space-2);
+  align-items: start;
+  margin-bottom: var(--space-2);
+}
+
+.calibration-sample-head .ui-field,
+.calibration-sample .ui-field:last-child {
+  margin-bottom: 0;
+}
+
+.calibration-remove {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.calibration-sample input,
+.calibration-sample textarea {
+  width: 100%;
+  min-height: var(--touch);
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.calibration-actions {
+  margin-top: var(--space-1);
+}
+
+.calibration-report {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.calibration-result,
+.calibration-suggestions {
+  background: var(--muted);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-2);
+}
+
+@media (max-width: 700px) {
+  .calibration-sample-head {
+    grid-template-columns: 1fr;
+  }
+}

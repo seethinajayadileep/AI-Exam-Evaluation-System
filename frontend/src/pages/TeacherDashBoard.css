@@ -1,10 +1,5 @@
 .Teacher-ai-div{
-
-      /* Base colors */
-    --background: hsl(210, 17%, 98%);
-    --foreground: hsl(216, 19%, 16%);
-    --card: hsl(0, 0%, 100%);
-    --card-foreground: hsl(216, 19%, 16%);
+    font-family: var(--font-sans);
     
     /* Primary colors */
     --primary: hsl(214, 84%, 56%);
@@ -54,6 +49,7 @@
     color: var(--foreground);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 .teacher-ai-header {
     height: var(--header-height);
@@ -205,6 +201,18 @@
     padding: 1rem 0;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 .teacher-ai-nav-item {
     display: flex;
     align-items: center;
@@ -215,6 +223,11 @@
     cursor: pointer;
     transition: all 0.2s;
     color: var(--muted-foreground);
+    width: calc(100% - 1rem);
+    border: none;
+    background: none;
+    font: inherit;
+    text-align: left;
 }
 
 .teacher-ai-nav-item:hover {
@@ -244,6 +257,7 @@
 }
 .teacher-ai-main-content {
     flex: 1;
+    min-width: 0;
     margin-left: var(--sidebar-width);
     padding: 2rem;
     transition: margin-left 0.3s ease;
@@ -337,6 +351,16 @@
 .teacher-ai-stat-card:hover {
     box-shadow: var(--shadow-medium);
     transform: translateY(-2px);
+}
+
+.teacher-ai-stat-card h3 {
+    font-size: 1.75rem;
+    margin: 0;
+}
+
+.teacher-ai-stat-card p {
+    margin: 0;
+    color: var(--muted-foreground);
 }
 
 .teacher-ai-stat-icon {
@@ -522,11 +546,74 @@
 }
 
 /* Submissions Table */
+.table-wrapper,
 .teacher-ai-submissions-table-container {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow-soft);
-    overflow: hidden;
+}
+
+.submission-cards {
+    display: none;
+}
+
+.submission-card {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.submission-card header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.submission-card h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.submission-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.teacher-ai-upload-form-wide {
+    max-width: 52rem;
+}
+
+.teacher-ai-checkbox {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+    .desktop-table {
+        display: none;
+    }
+
+    .submission-cards {
+        display: block;
+    }
+}
+
+.teacher-ai-tab-content,
+.teacher-ai-upload-form-container {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+.teacher-ai-btn,
+.teacher-ai-filter-controls select {
+    min-height: 44px;
 }
 
 .teacher-ai-submissions-table {
@@ -569,4 +656,68 @@
 .teacher-ai-status-reviewed {
     background: hsl(214, 84%, 56%, 0.2);
     color: var(--primary);
+}
+
+.teacher-ai-status-submitted {
+    background: hsl(188, 94%, 88%);
+    color: var(--secondary-foreground);
+}
+
+.teacher-ai-status-pending_review {
+    background: hsl(42, 96%, 65%, 0.25);
+    color: var(--warning-foreground);
+}
+
+.teacher-ai-rubric-fieldset {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.teacher-ai-rubric-row {
+    display: grid;
+    grid-template-columns: 1.4fr 80px 1.4fr;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.teacher-approval-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem 1rem;
+    background: hsl(214, 84%, 56%, 0.1);
+    border-radius: 0.5rem;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .teacher-ai-sidebar {
+        transform: translateX(-100%);
+        box-shadow: var(--shadow-medium);
+    }
+
+    .teacher-ai-sidebar.open {
+        transform: translateX(0);
+    }
+
+    .teacher-ai-main-content,
+    .teacher-ai-main-content.sidebar-collapsed {
+        margin-left: 0;
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: var(--header-height) 0 0 0;
+        background: rgba(15, 23, 42, 0.35);
+        z-index: 35;
+        border: none;
+        padding: 0;
+    }
 }

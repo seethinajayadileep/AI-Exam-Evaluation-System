@@ -1,10 +1,7 @@
 
 /* Header */
 .student-body{
-  --background: hsl(210, 17%, 98%);
-    --foreground: hsl(216, 19%, 16%);
-    --card: hsl(0, 0%, 100%);
-    --card-foreground: hsl(216, 19%, 16%);
+    font-family: var(--font-sans);
     
     /* Primary colors */
     --primary: hsl(214, 84%, 56%);
@@ -56,6 +53,7 @@
     color: var(--foreground);
     line-height: 1.6;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 .student-header {
     height: var(--header-height);
@@ -182,6 +180,7 @@
 }
 .student-main-content {
     flex: 1;
+    min-width: 0;
     margin-left: var(--sidebar-width);
     padding: 2rem;
     transition: margin-left 0.3s ease;
@@ -424,12 +423,28 @@
     z-index: 40;
 }
 
+.sidebar-backdrop {
+    display: none;
+}
+
 .student-sidebar.collapsed {
     width: var(--sidebar-collapsed-width);
 }
 
 .student-sidebar-nav {
     padding: 1rem 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .student-nav-item {
@@ -442,6 +457,11 @@
     cursor: pointer;
     transition: all 0.2s;
     color: var(--muted-foreground);
+    width: calc(100% - 1rem);
+    border: none;
+    background: none;
+    font: inherit;
+    text-align: left;
 }
 
 .student-nav-item:hover {
@@ -510,6 +530,13 @@
     margin-bottom: 1rem;
 }
 
+.student-assignment-flags {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
 .student-assignment-title {
     font-size: 1.125rem;
     font-weight: 600;
@@ -576,11 +603,52 @@
     min-height: calc(100vh - var(--header-height));
 
 }
+.table-wrapper,
 .student-submissions-table-container {
+    width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
     background: var(--card);
     border-radius: var(--radius);
     box-shadow: var(--shadow-soft);
-    overflow: hidden;
+}
+
+.submission-cards {
+    display: none;
+}
+
+.submission-card {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.submission-card header {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+.submission-card h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.submission-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+@media (max-width: 700px) {
+    .desktop-table {
+        display: none;
+    }
+
+    .submission-cards {
+        display: block;
+    }
 }
 
 .student-submissions-table {
@@ -963,13 +1031,50 @@
 }
 
 /* Responsive Design */
+.student-status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.student-status-expired,
+.student-status-badge.student-status-expired {
+    background: hsl(0, 84%, 60%, 0.15);
+    color: var(--destructive);
+}
+
+.student-status-pending_review,
+.student-status-badge.student-status-pending_review {
+    background: hsl(214, 84%, 56%, 0.15);
+    color: var(--primary);
+}
+
+.student-status-submitted,
+.student-status-badge.student-status-submitted {
+    background: hsl(188, 94%, 88%);
+    color: var(--secondary-foreground);
+}
+
 @media (max-width: 1024px) {
     .student-sidebar {
         transform: translateX(-100%);
+        box-shadow: var(--shadow-medium);
     }
     
     .student-sidebar.open {
         transform: translateX(0);
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: var(--header-height) 0 0 0;
+        background: rgba(15, 23, 42, 0.35);
+        z-index: 35;
+        border: none;
+        padding: 0;
     }
     
     .student-main-content {
@@ -1019,4 +1124,16 @@
     .student-modal-content.large {
         max-width: 95%;
     }
+}
+
+.student-tab-content,
+.student-assignments-grid,
+.student-dashboard-page {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.student-btn,
+.student-filter-controls select {
+    min-height: 44px;
 }

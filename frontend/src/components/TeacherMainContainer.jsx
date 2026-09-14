@@ -1,47 +1,44 @@
 import TeacherSideBar from "./TeacherSideBar";
 import React, { useState } from "react";
-import  TeacherDashBoardQuestion from './TeacherDashBoardQuestion'
+import TeacherDashBoardQuestion from "./TeacherDashBoardQuestion";
 import TeacherUploadQuestion from "./TeacherUploadQuestion";
 import TeacherSubmissionButton from "./TeacherSubmissionButton";
 
+function TeacherMainContainer({ isClicked, onCloseSidebar }) {
+  const [display, setDisplay] = useState("dashboard");
 
-function TeacherMainContainer({isClicked}){
-  const [display,setDisplay]=useState("dashboard");
+  const handleNavigate = (message) => {
+    setDisplay(message);
+    if (typeof window !== "undefined" && window.innerWidth <= 1024 && onCloseSidebar) {
+      onCloseSidebar();
+    }
+  };
 
-const handleSideButton=(message)=>{
-  console.log(message);
-  setDisplay(message);
-}
-
-
-const handleDashboardNavigation = (message) => {
-  setDisplay(message);
-}
-
-let DisplayedContent;
+  let displayedContent;
   if (display === "upload") {
-    DisplayedContent = <TeacherUploadQuestion />;
+    displayedContent = <TeacherUploadQuestion />;
   } else if (display === "submission") {
-    DisplayedContent = <TeacherSubmissionButton />;
+    displayedContent = <TeacherSubmissionButton />;
   } else {
-    
-    DisplayedContent = <TeacherDashBoardQuestion onNavigate={handleDashboardNavigation} />;
+    displayedContent = <TeacherDashBoardQuestion onNavigate={handleNavigate} />;
   }
 
-  let element;
-  if(isClicked){
-    element=<TeacherSideBar ButtonClicked={handleSideButton}/>;
-  }
-  else{
-    element=<div></div>;
-  }
-return (
-   <div className="teacher-ai-main-container">
-     {element}
-     <div className="teacher-ai-main-content">
-       {DisplayedContent}
-     </div>
-   </div>
-)
+  return (
+    <div className="teacher-ai-main-container">
+      {isClicked && (
+        <button
+          type="button"
+          className="sidebar-backdrop"
+          aria-label="Close navigation menu"
+          onClick={onCloseSidebar}
+        />
+      )}
+      <TeacherSideBar ButtonClicked={handleNavigate} activeTab={display} isOpen={isClicked} />
+      <div className={`teacher-ai-main-content ${isClicked ? "" : "sidebar-collapsed"}`}>
+        {displayedContent}
+      </div>
+    </div>
+  );
 }
+
 export default TeacherMainContainer;

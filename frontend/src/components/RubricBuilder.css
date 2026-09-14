@@ -1,0 +1,115 @@
+.rubric-builder {
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--card);
+  color: var(--card-foreground);
+}
+
+.rubric-builder legend {
+  font-weight: 700;
+  padding: 0 0.35rem;
+}
+
+.rubric-total {
+  margin: 0 0 1rem;
+  font-weight: 600;
+}
+
+.rubric-total.is-balanced {
+  color: var(--success);
+}
+
+.rubric-total.is-unbalanced {
+  color: var(--destructive);
+}
+
+.rubric-builder-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.rubric-builder-row {
+  display: grid;
+  grid-template-columns: 1.5rem 1fr auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+}
+
+.rubric-builder-row.is-dragging {
+  opacity: 0.55;
+}
+
+.rubric-drag-handle {
+  cursor: grab;
+  color: var(--muted-foreground);
+  user-select: none;
+  padding-top: 1.5rem;
+}
+
+.rubric-builder-fields {
+  display: grid;
+  grid-template-columns: 1fr 90px;
+  gap: 0.5rem 0.75rem;
+}
+
+.rubric-builder-fields label {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.rubric-builder-fields input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  background: var(--surface);
+  color: var(--foreground);
+}
+
+.rubric-builder-fields label:nth-of-type(3),
+.rubric-builder-fields input:nth-of-type(3) {
+  grid-column: 1 / -1;
+}
+
+.rubric-builder-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.rubric-builder-actions button {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  border-radius: 0.35rem;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.rubric-remove {
+  color: var(--destructive);
+}
+
+@media (max-width: 700px) {
+  .rubric-builder-row {
+    grid-template-columns: 1fr;
+  }
+
+  .rubric-drag-handle {
+    padding-top: 0;
+  }
+
+  .rubric-builder-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}

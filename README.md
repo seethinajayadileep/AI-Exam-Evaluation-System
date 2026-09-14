@@ -1,10 +1,30 @@
-# AI-Exam-Evaluation-System
-AI-Based Subjective Evaluation System
+# AI Exam Evaluation System
 
-Developed a web-based platform that automatically evaluates descriptive answers written by students using Artificial Intelligence and Natural Language Processing (NLP). The system helps teachers reduce manual grading effort and ensures consistent and unbiased evaluation of subjective answers.
+Web app for teachers to publish subjective questions with model answers and rubrics, and for students to submit long-form answers. Teachers can run AI evaluation, review confidence and criterion-level scores, then approve or override the grade. Students only see scores after a teacher publishes them.
 
-The platform allows teachers to upload questions along with model answers, and students can submit long-form responses through the web interface. The system analyzes the submitted answers using multiple evaluation parameters such as keyword similarity, semantic similarity with the model answer, and grammar correctness. Based on these factors, the system generates an automated score and provides feedback to the student.
+## Demo accounts (fictional)
 
-The application also includes separate dashboards for teachers and students. Teachers can manage questions, review evaluation results, and monitor student performance, while students can submit answers and view their scores and feedback.
+These are the only seeded users. Do not load real student data until you replace the demo login with your own identity provider.
 
-Technologies Used: React.js, Node.js, Express.js, JavaScript, Natural Language Processing techniques.
+| Role | Email | Password |
+| --- | --- | --- |
+| Teacher | teacher@demo.school | Demo@1234 |
+| Student | alex.johnson@demo.school | Demo@1234 |
+| Student | jordan.lee@demo.school | Demo@1234 |
+
+Dashboards are blocked until you sign in. The API also requires a Bearer token and checks role on every write.
+
+## Run locally
+
+1. In `backend`, copy `.env.example` to `.env` and set `MONGO_URI`, `JWT_SECRET`, and `OPENAI_API_KEY`.
+2. `cd backend && npm install && npm start`
+3. `cd frontend && npm install && npm start`
+
+The first backend start reseeds demo assignments if the seed version changed (unique questions, current due dates, no duplicate rows). To force a reset: `npm run seed` in `backend`.
+
+## Main capabilities
+
+- Email/password login with teacher and student roles
+- Teacher: create questions with model answer + rubric, review submissions, Evaluate with AI, approve or override, audit trail
+- Student: pending vs expired assignments, submit before the due date, view published feedback
+- Programming is included in subject filters and the question form
